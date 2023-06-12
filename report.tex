@@ -1,0 +1,1237 @@
+
+
+
+\documentclass[a4paper,12pt,oneside]{report}
+\usepackage{epsfig}
+\usepackage{longtable}
+\usepackage{lipsum}
+\usepackage{enumerate}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath, amsfonts} 
+\usepackage[left=3.5cm,top=2cm,right=3cm,bottom=3.5cm]{geometry}
+\usepackage{setspace}           
+\usepackage{float}
+\hyphenpenalty=5000
+\tolerance=1000
+
+\usepackage{lscape} % for landscape tables
+\usepackage{cite}
+\renewcommand{\baselinestretch}{1.7} 
+\renewcommand{\bibname}{References}
+\begin{document}
+	
+ \thispagestyle{empty}
+ \oddsidemargin 1.48cm
+ \evensidemargin .5cm
+
+ 
+	
+ \begin{center}
+  {\Large \bf Gesture Recognition using Flex sensors and Machine Learning\\}
+  \vspace*{0.75cm}
+  {\large \textbf {Project Report}}\\
+  {\normalsize \it Submitted to \\The APJ Abdul Kalam Technological University}\\
+    {\normalsize \it in partial fulfillment of the requirements for the award of the Degree}
+  \\of
+  \vspace*{0.25cm}
+  \\{\em Bachelor of Technology}\\
+  \vspace*{1.5mm}
+  in\\
+  \vspace*{1.5mm} 
+ CSE[AI AND ML]\\
+  \vspace*{.75cm}
+  by
+  \vspace*{.25cm}
+  \\{\bf ROHITH SYAM (SCT20AM054)}
+  \\{\bf NANMA PS (SCT20AM050)}
+                   \\{\bf VISHNUPRIYA G (SCT20AM061)}
+                   
+  %\vspace*{0.75cm}
+  %\vspace*{1.5cm}
+  %\vspace*{1.5cm}
+  \begin{figure}[hbt]
+\centering
+\centerline{\includegraphics[scale=1.9]{SCTCE.png}}
+\end{figure}
+\vspace*{0.01cm}
+  \\{\footnotesize DEPARTMENT OF COMPUTER SCIENCE ENGINEERING}
+  \\{\small \bf SCT COLLEGE OF ENGINEERING TRIVANDRUM}\\
+  {\small \bf KERALA\\
+   May 2023}
+ \end{center}
+
+          \newpage
+          \begin{center} {\large \bf DECLARATION}\vspace{0.1cm}\end{center}
+We declare that the project report {\large\bf{"GESTURE RECOGNITION USING FLEX SENSORS AND MACHINE LEARNING"}},
+submitted for partial fulfilment of the requirements for the award of degree of Bachelor of
+Technology of the APJ Abdul Kalam Technological University, Kerala is a bonafide workdone by us under supervision of Smt. Merrin J. This submission represents our ideas in
+our own words and where ideas or words of others have been included, we have adequately
+and accurately cited and referenced the original sources. We also declare that we have
+adhered to ethics of academic honesty and integrity and have not misrepresented or fabricated
+any data or idea or fact or source in my submission. We understand that any violation of the
+above will be a cause for disciplinary action by the institute and/or the University and can
+also evoke penal action from the sources which have thus not been properly cited or from
+whom proper permission has not been obtained. This report has not been previously formed
+the basis for the award of any degree, diploma or similar title of any other University.
+ \vspace{1cm}
+ \\Place : Thiruvananthapuram
+ \\Date : 12/06/2023
+ \\
+ \hspace*{10cm}NAMES OF STUDENTS:
+         \\
+ \\
+         \hspace*{10cm} VISHNUPRIYA G
+\\
+         \hspace*{10cm} ROHITH SYAM
+ \\
+         \hspace*{10cm} NANMA PS
+ \\
+ \\
+         
+
+         \newpage
+         \thispagestyle{empty}
+	
+ \vspace*{-0.3cm}
+ \begin{center} {\large \bf DEPARTMENT OF COMPUTER SCIENCE ENGINEERING}\vspace{0.1cm}\end{center}
+ \begin{center} {\large \bf SCT COLLEGE OF ENGINEERING TRIVANDRUM}\vspace{0.1cm}\end{center}
+ \begin{center} {\large \bf THIRUVANANTHAPURAM - 16, }\vspace{0.1cm}\end{center}
+	
+ \begin{figure}[hbt]
+\centering
+\centerline{\includegraphics[scale=2.5]{SCTCE.png}}
+\end{figure}
+
+         \begin{center} \textbf{{\large \bf {CERTIFICATE}}}\vspace{0.1cm}\end{center}
+	
+ 
+ This is to certify that the report entitled {\textbf {"GESTURE RECOGNITION USING FLEX SENSORS AND MACHINE LEARNING"}}submitted by
+{\textbf{ROHITH SYAM (SCT20AM054),VISHNUPRIYA G (SCT20AM061) , }} and {\textbf{NANMA PS (SCT20AM050)}}
+to the APJ Abdul Kalam Technological University in partial fulfilment
+of the requirements for the award of the Degree of Bachelor of Technology in Computer
+Science and Engineering is a bonafide record of the project work carried out by them under
+my/our guidance and supervision. This report in any form has not been submitted to any other
+University or Institute for any purpose.
+	
+ \begin{singlespace}
+  
+  
+  \vspace*{.65cm}
+  
+  \begin{center}
+   \begin{tabular}{ p{6cm} p{.5cm} p{7cm} } 
+    %\hline
+    \textbf{Smt Merrin J} \\
+    Ass. Professor \\ 
+    Dept of Computer Science Engineering \\ 
+    SCT College of Engineering \\
+    Trivandrum && \\
+   \end{tabular}
+  \end{center}
+  \vspace*{.65cm}
+  
+  \begin{center}
+   \begin{tabular}{ p{6cm} p{0.5cm} p{7cm} } 
+    %\hline
+    \textbf{Smt. Kavitha KV} && \textbf{Smt. Binu Rajan M R } \\ 
+    Assistant Professor  & & Assistant  Professor  \\ 
+    Dept. of Computer Science Engineering && Dept. of Computer Science Engineering \\ 
+    SCT College of Engineering & & SCT College of Engineering\\
+    Trivandrum && Trivandrum\\
+   \end{tabular}
+  \end{center}
+ \end{singlespace}
+	
+ %----------------------------------------------%
+
+
+%----------------------------------------------%
+\newpage
+\thispagestyle{empty}
+ \begin{center} {\Large \bf Acknowledgement}\end{center}
+ \par
+ We are grateful to present this project after completing it successfully. This project would not
+have been possible without the guidance, assistance and suggestions of many individuals. We
+would like to express our deep sense of gratitude and indebtedness to each and everyone who
+has helped us make this project a success.. 
+\par
+We heartily thank our  {\textbf {Head of Department, Dr. Soniya B, Dept. of Computer Science and
+Engineering, Sree Chitra Thirunal College of Engineering }}for her constant
+encouragement and inspiration in taking up this project.
+\par
+We heartily thank our Project coordinator {\textbf {Smt. Binu Rajan M R, Assistant Professor, Dept. of
+Computer science and Engineering}}, for her constant follow up and advice throughout the
+course of the Project work along with {\textbf {Smt. Kavitha K V, Assistant Professor, Dept. of
+Computer science and Engineering}}
+\par
+We gratefully thank our Project guide, {\textbf {Smt. Merrin J, Assistant Professor, Dept. of
+Computer Science and Engineering}}, for her encouragement and advice throughout the
+course of the Project work.
+\par
+Special thanks to all the staff members of the Computer Science and Engineering Department
+for their help and kind cooperation.
+Lastly we thank our parents and friends for their encouragement and support given to us in
+order to finish this precious work.
+
+ %%\begin{abstract}\vspace{1cm}
+ \noindent 
+ \par
+	
+ \newpage
+ \pagenumbering{roman}
+	
+ %----------------------------------------------%
+ %\vpfill{50}
+ \vspace*{1.6cm}
+ \begin{center} {\Large \bf Abstract}\end{center}
+ \addcontentsline{toc}{chapter}{Abstract} 
+ \noindent
+ \\
+In this project, we present a gesture recognition system that can accurately recognize hand
+gestures and convert them into text using flex sensors and machine learning.The traditional input methods such as keyboards or mouse do not provide a natural way of
+input, leading to discomfort and limited interaction capabilities. A gesture recognition system
+that can interpret hand gestures and convert them into text can provide a more natural way
+of interaction, improving the user experience. The proposed system uses flex sensors
+attached to a glove or other wearable device that measure the sensor values when the user
+performs different hand gestures.The collected data is preprocessed by normalizing the
+sensor values, removing noise, and splitting the data into training and testing sets. A
+machine learning model is trained using Random Forest Classifier.Using the preprocessed data and corresponding text labels. The trained model is
+used to recognize hand gestures , where the sensor values are measured at
+regular intervals, preprocessed, and fed into the model to get the predicted text output. The
+proposed system provides a natural and intuitive way of input that can improve the user
+experience in various applications, such as gaming, virtual reality, and human-machine
+interaction.This can immensely be applied for people with disabilities for communication,assistive
+technology,virtual assistant and rehabilitation improving their quality of life and independence.
+
+	
+ %\vrfill
+	
+	
+	
+ %\end{abstract}
+	
+
+ %-----------------------------------------------
+ 
+\chapter{Introduction}
+ \pagenumbering{arabic}
+ \label{chap:intro}
+ \par
+ Gesture recognition is an emerging technology that has the potential to revolutionize the way we interact with computers and other electronic devices.For people with disabilities who may have limited mobility, gesture recognition can be a powerful tool for controlling their environment and communicating with others.In this project, we aim to develop a hardware implementation of gesture recognition using flex sensors, combined with machine learning  to convert hand movements into text/audio.This technology can enable individuals with disabilities to communicate more effectively and lead more independent lives.
+
+	
+ \section{Purpose}
+ \par The proposed gesture recognition system using flex sensors and
+machine learning serves as an assistive technology for patients with
+limited mobility. By utilizing a wearable device, it captures hand
+movements and eliminates the need for complex camera setups or
+extensive physical movements. With machine learning, it accurately
+recognizes and classifies gestures in real-time, enabling to capture the
+patients intuitive hand gestures for a more natural means of
+communication.
+\par
+\par
+
+
+	
+	
+
+ \section{Intended Audience and Document Overview} 
+	
+ \par 
+ The proposed project holds significant potential across multiple domains, with a particular focus on enhancing the lives of individuals facing challenges such as visual impairment, partial paralysis, hospitalization, and speech impairment. By leveraging innovative technologies and solutions, this project aims to provide accessible and inclusive support to these marginalized communities. Through the development and implementation of tailored interventions, it seeks to empower individuals who are blind by enabling them to navigate their surroundings with greater ease and independence. Additionally, it strives to assist those who are partially paralyzed by offering tools and devices that facilitate mobility and enhance their quality of life. Moreover, the project aims to address the needs of hospital patients by leveraging advancements in remote monitoring and communication technologies, thus ensuring effective and timely care. Furthermore, individuals with speech difficulties would greatly benefit from the project's solutions, which could provide alternative means of communication, enabling them to express themselves and engage with others more effectively. By addressing these diverse challenges, this project has the potential to significantly improve the lives of individuals across various fields and promote inclusivity in society.
+
+
+
+
+	
+ \section{Scope}
+	
+ \begin{itemize}
+    \item Develop a real-time gesture detection system using flex sensors and machine learning.
+    \item Enable users, especially those with limited mobility, to control devices or interact with applications using hand gestures.
+    \item Focus on providing a natural and intuitive user experience, enhancing accessibility and convenience.
+    \item Conduct extensive testing and evaluation to ensure accurate gesture recognition and reliable performance.
+\end{itemize}
+
+ %-------------------------------------------------
+	
+ \newpage
+ \chapter{Literature Review}
+ \label{chap:Literature Review}
+ \vspace*{-0.4cm}
+ \section{Existing Systems}
+ \par
+ There are many gesture recognition systems being developed in the developed and developing
+countries:-
+\par
+{\textbf{ 1.Movement and gesture recognition using deep learning and wearable-sensor technology}}
+ by Baao Xie, Baihua Li, Andy Harland
+  \begin{itemize}
+    \item The paper proposes a system for recognizing human movements and gestures using deep learning and wearable-sensor technology.
+    \item The system consists of wearable sensors attached to various parts of the human body, which capture the movement and gesture data, and a deep learning algorithm that processes the data to recognize the movements and gestures.
+
+   
+\end{itemize}
+
+\par {\textbf{ 2.Finger-Gesture Recognition for Visible Light Communication Systems Using Machine Learning
+}}
+ by Julian Webber, Abolfazl Mehbodniya, Rui Teng, Ahmed Arafa, Ahmed Alwakeel
+  \begin{itemize}
+    \item The paper proposes a finger-gesture recognition system for visible light communication systems using machine learning.
+    \item The system uses a photodiode sensor to capture the visible light signals from a light source, and a machine learning algorithm to classify the finger gestures based on the captured signals.
+    \item The authors evaluate the performance of the system in terms of gesture recognition accuracy, and compare it with other existing systems.
+
+
+   
+\end{itemize}
+\par {\textbf{ 3.Early Recognition and Prediction of Gestures
+}}
+ by A. Mori; S. Uchida; R. Kurazume; R. Taniguchi; T. Hasegawa; H. Sakoe
+  \begin{itemize}
+    \item The paper proposes a system for real-time interpretation and response to human gestures.
+    \item  The authors combine hand detection, tracking, and gesture recognition techniques using computer vision and machine learning. 
+    \item Their key contribution is an early recognition and prediction mechanism that identifies and classifies gestures before they are fully executed
+    \item By leveraging temporal information and modeling gesture dynamics, the system can predict ongoing gestures based on observed partial motion.
+    \item Experimental results demonstrate the effectiveness of the approach, offering potential for improved gesture-based interaction technologies.
+
+
+   
+\end{itemize}
+
+
+
+\section{Problem Statement}
+The primary aim of this project is to design and implement a gesture recognition system using flex sensors and machine learning that can accurately recognize hand gestures and convert them into text in order to aid disabled people and improve their real time communication.
+\par
+\section{Proposed Solution}
+The proposed project aims to develop a gesture recognition system using flex sensors and machine learning for patients with limited mobility. By addressing the challenges faced by these individuals in using traditional input methods, the project offers an innovative assistive technology solution.
+
+The system utilizes flex sensors attached to a glove worn on the hand, providing analog values based on finger flexion. These values are transmitted to an Arduino Uno board, which acts as an interface with the computer.
+
+On the computer, a Python script processes the sensor data and employs machine learning algorithms, such as the Random Forest Classifier, to train a model on a dataset of known gestures. This allows real-time recognition and interpretation of user gestures.
+
+The trained model accurately classifies the flex sensor data, enabling patients to control devices and access technology through intuitive hand gestures. A user-friendly graphical interface developed using Tkinter displays the recognized gestures, enhancing the user experience.
+
+Overall, this project offers an accessible and empowering solution for individuals with limited mobility. By combining flex sensors, machine learning, and a user-friendly interface, it enhances interaction with technology and promotes independence for users with physical limitations.
+ %-----------------------------------------------
+	
+ \newpage
+ \chapter{Software Requirement Specification}
+ \label{chap:model}
+ \section{Functional Requirements}
+ \textbf{\large Users}
+ \subsection{Gesture Recognition}
+ \par
+   a.The system should accurately detect and interpret hand gestures performed by the patient.
+ \par
+ b. It should support a variety of gestures for different actions or commands.
+ \par
+c. The recognition should be real-time and responsive to the patient's movements.
+\\
+\subsection{ Feedback and Output:}
+ \par
+a. The system should provide feedback or output to the patient to confirm the recognized gesture or indicate the result of the action.
+    
+    
+
+ \par
+b. It can use visual, auditory, or tactile cues to communicate with the patient effectively.
+\\
+\subsection{ Customization:}
+ \par
+   a. Users should be able to customize the assigned actions or commands for different gestures.
+    
+
+ \par
+b. The system should allow users to personalize the gesture recognition settings based on their specific needs.
+\\
+\textbf{\large Bystanders}
+\subsection{ Awareness:}
+ \par
+
+    a. The system should have a visible indicator or display to inform bystanders that the patient is using a gesture recognition device.
+
+
+    
+    
+
+ \par
+    b. This helps in creating awareness and facilitating better understanding and cooperation from others.
+\\
+  
+   
+
+
+    
+   
+   
+    
+\subsection{ Safety Measures::}
+ \par
+   a. The system should include safety measures to prevent unintended actions or gestures that could potentially harm the patient or others.
+    
+
+ \par
+b. The system should allow users to personalize the gesture recognition settings based on their specific needs.
+
+\\
+\subsection{Privacy and Confidentiality:}
+ \par
+    
+    a. The system should prioritize the privacy and confidentiality of the patient's gestures and actions.
+    
+
+ \par
+b. It should implement appropriate security measures to prevent unauthorized access or data breaches.
+
+\\
+\subsection{Support and Assistance:}
+ \par
+    
+    a. The system should have user-friendly instructions or documentation to guide bystanders on how to interact or assist the patient when needed.
+    
+
+ \par
+ 
+    b. It should provide clear guidelines on appropriate actions to ensure a positive and supportive environment.
+
+
+\\
+
+ 
+
+%-----------------------------------------------
+	
+ \newpage
+ \chapter{Software Design}
+ \label{chap:Method}
+ \section{System Architecture Design}
+ It can be categorized as a "Sensor-to-Application Architecture" or a "Device-to-Device Architecture."
+
+In this architecture, the flex sensors and Arduino Uno board serve as the sensing devices, collecting data from the user's gestures. The data is then processed and analyzed directly on the Arduino Uno board using the machine learning algorithm implemented in Python. The Python code acts as the application layer, where the data is received, processed, and used for gesture recognition.
+
+This architecture eliminates the need for a dedicated server component, as the processing and analysis are performed locally on the Arduino Uno board using the Python code. It provides a streamlined and efficient solution for real-time gesture recognition without the overhead of communication with a separate server.
+  
+	
+\section{Use Case}
+\subsection{Actors}
+\par
+Patient: An individual with limited mobility who requires assistive technology to interact with devices.
+
+\par
+Wearable Device: The device worn by the patient, equipped with flex sensors and machine learning capabilities.
+\par
+Target Device: The device or system that the patient wants to control or interact with using hand gestures.
+\\
+\subsection{Use cases}
+\par
+1)The patient wears the wearable device with flex sensors and activates the gesture control mode.
+
+\par
+2)The patient performs a specific hand gesture recognized by the wearable device's machine learning system.
+
+\par
+3)The wearable device captures the flex sensor data and processes it using the machine learning algorithm.
+\par
+4)Based on the processed data, the machine learning algorithm predicts the corresponding gesture.
+\par
+
+4)The wearable device sends the corresponding command or signal to the target device.
+\par
+6)The target device receives the command or signal and performs the desired action or responds accordingly.
+
+\\
+\subsection{Pre condition}
+\par
+1)The patient is wearing the wearable device with flex sensors and the necessary software is installed.
+\par
+
+2)The target device is compatible and configured to receive commands from the wearable device.
+
+\subsection{Post condition}
+\par
+1)The patient successfully interacts with the target device using hand gestures, achieving the desired outcome.
+
+
+
+%-----------------------------------------------
+\newpage
+ \chapter{Technology and Component Specifications}
+ \label{chap:Hardware Design}
+ \textbf{\huge Hardware components}
+ \section{Flex Sensors}
+ \noindent These are the main components used to measure the
+bending of fingers. They typically have two terminals and provide an
+analogue output based on the degree of flex.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{FlexSensor2.2_BendSensorforHandGestureRecognition_1200x1200.png}
+        \captionof{figure:}{ Flex Sensor}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+
+
+
+\section{Arduino Uno}
+ It serves as the microcontroller board that interfaces
+with the flex sensors and processes the sensor data. The Arduino Uno
+board has digital and analogue input and output pins, making it suitable
+for this project.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{download.jpeg}
+        \captionof{figure:}{ Arduino Uno}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+ \section{Resistor}
+ A resistor is used for voltage division to convert the
+analogue output of the flex sensors into a voltage range that can be read
+by the Arduino Uno's analogue pins. The resistor helps adjust the
+sensitivity of the flex sensors.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{515c7a2bce395f653d000002.png}
+        \captionof{figure:}{ Resistor}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+ 
+ \section{Connecting Wires}
+These wires are used to establish electrical
+connections between the flex sensors, the Arduino Uno board, and the
+resistor. They facilitate the transfer of signals and power between the
+components.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{png-transparent-jump-wire-jumper-electrical-wires-cable-electrical-connector-plug-wire-electronics-electrical-wires-cable-cable.png}
+        \captionof{figure:}{ Connecting Wires}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+
+ \section{Gloves}
+The flex sensors are attached to a glove or wearable device to
+accurately measure the finger movements. The glove provides a
+convenient way to position and secure the flex sensors on the user's fingers.    
+
+
+
+\vspace{\baselineskip}
+\vspace{\baselineskip}
+
+\textbf{\huge Technology Stack}
+ \section{Arduino IDE}
+The Arduino IDE (Integrated Development
+Environment) is used for programming the Arduino Uno board. It
+provides a user-friendly interface to write and upload code to the
+board. We use the Arduino IDE to write the code that reads the
+analog values from the flex sensors connected to the Arduino Uno
+board. This code will transmit the sensor data to the computer.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Screen+Shot+2021-02-17+at+18.00.37.png}
+        \captionof{figure:}{ Arduino IDE}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+ \section{Python}
+Python will be used for implementing the machine learning
+algorithm. The code is written in Python to train a random forest
+classifier model using the collected data from the flex sensors.
+Python provides a wide range of libraries and tools for machine
+learning, such as scikit-learn, which includes the random forest
+classifier implementation which we use for the gesture prediction.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{png-transparent-python-logo.png}
+        \captionof{figure:}{ Python}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+ \section{Tkinter}
+Tkinter is a Python library used for creating graphical user
+interfaces (GUIs). You can utilize Tkinter to build an interface for
+displaying the output or results of the gesture recognition system. Tkinter
+provides various widgets and tools for designing interactive GUI
+components.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{tkinter-tutorial.png}
+        \captionof{figure:}{ Tkinter}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+\section{Summary}
+With this technology stack, you can integrate the Arduino
+board with Python, train the machine learning model, and use Tkinter to
+create a user-friendly interface to visualize the predicted gestures or
+other relevant information.
+
+%-------------------------------------------------
+	
+ \newpage
+	
+	
+	
+
+	
+	
+	
+	
+	
+ %-----------------------------------------------
+	
+	
+
+	
+	
+
+	
+	
+	
+ %-----------------------------------------------
+	
+
+	
+ %-----------------------------------------------
+	
+	
+ \newpage
+ \chapter{Implementation}
+ \label{chap:Result}
+
+\textbf{\large The project methodology is as follows:}
+
+
+ \section{Hardware}
+
+ \subsubsection{Flex Sensors}
+ Three flex sensors are used, with each sensor
+representing one finger. The flex sensors have two terminals, but
+you need three outputs: power, positive, negative, and signal.
+
+
+
+\subsubsection{Resistor}
+A resistor is used to perform voltage division and obtain
+analog values from the signal pin of the flex sensors. This helps
+convert the flex sensor&#39;s resistance changes into voltage changes. 
+
+
+ \subsubsection{Ground Connection}
+The left terminals of the three flex sensors are
+connected together and then connected to the ground (negative)
+pin of the Arduino Uno board. This ensures that all three sensors
+have the same negative polarity.
+
+
+\subsubsection{Power Connection}
+The other end of the resistors is connected to
+the 5V pin of the Arduino Uno board (Vin pin) to provide power to
+the flex sensors.
+
+\subsubsection{Analog Pins}
+The signal outputs of the flex sensors are connected
+to the analog pins (A0, A1, A2) of the Arduino Uno board. These
+pins read the analog voltage values generated by the flex sensors.
+\subsubsection{Wiring and Glove}
+The sensors, Arduino Uno board, and resistors
+are securely connected and mounted on a glove. Connecting wires
+are used to establish the necessary connections between the
+components.
+
+This hardware setup allows the flex sensors to capture finger
+movements, convert them into analog voltage values, and transmit the
+data to the Arduino Uno board for further processing.
+
+ 
+ 
+ 
+ \section{Software}
+	
+ \subsection{Arduino IDE}
+ The Arduino IDE is set up to read the analog values
+from the flex sensors and transmit the data to a computer. The
+Serial communication feature is used to send the sensor values to
+the computer and save them in a CSV file.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{Screenshot 2023-06-12 005537.png}
+        \captionof{figure:}{ Arduino IDE}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+ \subsection{Machine Learning Algorithm}
+ A Python script reads the CSV file
+containing the flex sensor values. A machine learning algorithm,
+called the Random Forest Classifier, is used to train a model on
+the sensor data. We define certain gestures based on the sum of
+the sensor values and label them accordingly in the dataset.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{forest1.png}
+        \captionof{figure:}{ Training}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{forest2.png}
+        \captionof{figure:}{ Testing}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+\textbf{\large 1)Training}
+
+Purpose: Read the flex sensor data from the 'flexxx.csv' file.
+\par
+Code: data = pd.read_csv('flexxx.csv')
+\par
+Explanation: The code uses the pandas library to read the CSV file and stores the data in the 'data' DataFrame
+
+
+
+
+
+    
+    
+    
+
+
+\\
+\textbf{\large 2)features = data.iloc[:, :-2]}
+\par
+  \textbf{\large labels = data.iloc[:, -1]}
+\par
+Feature and label extraction       
+\par
+ Purpose: Extract the features and labels from the data.
+ The code extracts the features from the 'data' DataFrame using the iloc function, excluding the last two columns. The features are stored in the 'features' variable. The labels are extracted from the last column and stored in the 'labels' variable.
+\\
+\textbf{\large 3)train test split }
+\par
+Purpose: Split the dataset into training and testing sets.
+\par
+The code uses the train test split function from scikit-learn to split the features and labels into training and testing sets. The test size parameter specifies the percentage of data to be used for testing, and the random state parameter ensures reproducibility of the split.
+\\
+\textbf{\large 4)RandomForestClassifier() }
+\par
+Purpose: Instantiate the Random Forest Classifier for gesture classification.
+\par
+Code: classifier = RandomForestClassifier()
+\par
+The code creates an instance of the RandomForestClassifier, which is a machine learning algorithm used for classification tasks.
+
+\\
+
+
+
+ \subsection{Prediction}
+ Once the model is trained, it is used to predict the
+gestures based on new sensor values. The sensor values are
+passed through the trained model and obtain the predicted
+gesture.
+\textbf{\large 1)Reading test data with a test csv file }
+\par
+=Code:with open('test.csv', 'r') as file:
+\par
+	reader = csv.reader(file)
+ \par
+	data = list(reader)
+
+\par
+Purpose:-The code uses the csv module to read the test data from the 'test.csv' file and stores it in the 'data' list
+\\
+\par
+
+
+
+\par
+\textbf{\large 2)Print Prediction}
+\par
+Function: print(prediction2)
+\par
+Explanation: This function prints the predicted gesture to the console.
+
+
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{op.png}
+        \captionof{figure:}{ prediction}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+
+\\
+\\
+ \subsection{Tkinter Application}
+ A graphical user interface (GUI) is created
+using Tkinter, a Python library for creating desktop applications.
+The GUI is designed to display the predicted gesture. A Predict
+button is present that triggers the prediction process when clicked.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{wind1.png}
+        \captionof{figure:}{ Homepage}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+ \subsection{Display Output}
+ When the Predict button is clicked, the current
+sensor values are retrieved and are passed them the trained
+model, and the predicted gesture is displayed on the Tkinter
+application.
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{wash.png}
+        \captionof{figure:}{ prediction window}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+\vspace{\baselineskip}
+
+This software setup allows for the processing of flex sensor data, the
+training of a machine learning model, and the display of predicted
+gestures in a Tkinter application.
+ 
+ 
+ %-----------------------------------------------
+
+
+%--------------------------------------------------  
+	
+ \newpage
+ \chapter{Testing Strategies}
+ \section{Strategies}
+ \textbf{\large The project can be tested using the following strategies:}
+ \subsection{Unit Testing}
+ \label{chap:Conclusion}
+ 
+ 
+ Individual components of the system, such as the
+Arduino code for reading flex sensor data, the machine learning
+algorithm, and the Tkinter application, are tested to ensure their
+proper functioning and task performance.
+\subsection{Integration Testing}
+The integration between different components
+of the system, such as the communication between the Arduino and the Python script, or the interaction between the machine
+learning algorithm and the Tkinter application, is tested to ensure
+seamless collaboration.
+
+\subsection{Performance Testing}
+The systems responsiveness and accuracy
+are evaluated by measuring the time taken to process flex sensor
+data, train the machine learning model, and display predicted
+gestures. The systems ability to handle data processing and
+prediction tasks within acceptable time limits is checked.
+\subsection{Gesture Recognition Testing}
+Tests are conducted to validate the
+accuracy of gesture recognition by developing a set of predefined
+gestures. The system is tested with different hand movements to
+ensure correct and accurate recognition and classification of
+gestures.
+\subsection{User Acceptance Testing}
+End-users, such as patients with limited
+mobility, are involved in testing the system and providing feedback
+on usability and effectiveness. User feedback is gathered to
+identify areas for improvement or adjustments to enhance the user
+experience.
+\subsection{Robustness Testing}
+The systems robustness is validated by
+subjecting it to various scenarios and edge cases. The ability to
+handle unexpected or erroneous data from flex sensors and
+provide appropriate error handling or fallback mechanisms is
+tested.
+\subsection{Usability Testing}
+The overall usability of the system is assessed
+through usability tests conducted with representative users. The
+ease of setup, calibration, and use of the system, as well as the
+clarity of the user interface in the Tkinter application, are
+evaluated.
+\vspace{\baselineskip}
+
+
+By implementing these testing strategies, the reliability, accuracy,
+performance, and user-friendliness of the gesture recognition system
+based on flex sensors and machine learning can be ensured.
+
+\section{Test Case}
+\subsection{Input}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMG-20230612-WA0023.jpg}
+        \captionof{figure:}{ glove(in use}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\subsection{Output}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMG-20230612-WA0022(1).jpg}
+        \captionof{figure:}{ arduino output}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{wash.png}
+        \captionof{figure:}{ prediction}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+
+
+
+
+	
+	
+
+ %--------------------------------------------------	 
+
+	
+ %-----------------------------------------------
+	
+	\newpage
+	\chapter{Result}
+	\label{chap:Method}
+ \section{Gloves}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMG-20230610-WA0049-01.jpeg}
+        \captionof{figure:}{ glove(in use}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMG_20230612_035235-02.jpeg}
+        \captionof{figure:}{ glove(not in use)}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+\section{Homepage}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{wind1.png}
+        \captionof{figure:}{ Homepage}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+\section{Result Window}
+\begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{wash.png}
+        \captionof{figure:}{ Result window}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+
+
+
+
+
+ 
+%-----------------------------------------------
+%-----------------------------------------------
+	
+	\newpage
+	\chapter{Result[arduino]}
+	\label{chap:Method}
+ \section{Arduino Serial Output}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{IMG-20230612-WA0022(1).jpg}
+        \captionof{figure:}{ Arduino serial output}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+\section{Dataset}
+ \begin{figure}[h]
+    \centering
+    \begin{minipage}{0.5\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{dataset.png}
+        \captionof{figure:}{ snapshot of dataset}
+        \label{fig:flex-sensor}
+    \end{minipage}
+\end{figure}
+\\
+ 
+%--------------------------------------------------	 
+	
+	\newpage
+	\chapter{Conclusion}
+	\label{chap:Conclusion}
+	In conclusion, the proposed project presents a gesture recognition system using flex sensors and machine learning as an assistive technology for patients with limited mobility. By addressing the limitations of traditional input methods, the system offers a natural and intuitive means of interaction. Through the integration of flex sensors, Arduino Uno, and machine learning algorithms, it enables real-time gesture recognition and control of devices. The user-friendly interface enhances the overall user experience, promoting independence and accessibility for individuals with physical limitations. This project has the potential to greatly improve the quality of life for patients with limited mobility, empowering them to engage with technology more effectively and independent.
+	
+	
+	
+	
+	%----------------------------------------------------
+
+
+	
+
+
+%-----------------------------------------------
+	
+	
+	\newpage
+	\chapter{References}
+	\label{chap:Method}
+ \par
+ 1)Movement and gesture recognition using deep learning and wearable-sensor technology by Baao Xie, Baihua Li, Andy Harland
+\par
+2)Finger-Gesture Recognition for Visible Light Communication Systems Using Machine Learning by
+Julian Webber, Abolfazl Mehbodniya, Rui Teng, Ahmed Arafa, Ahmed Alwakeel
+\par
+3)Early Recognition and Prediction of Gestures by A. Mori; S. Uchida;R. Kurazume; R. Taniguchi; T. Hasegawa; H. Sakoe
+\\
+
+
+
+	
+
+
+%-----------------------------------------------
+	
+	
+	
+ \newpage
+ \nocite{7103186}
+ \nocite{8329920}
+ \nocite{da2018novel}
+ \nocite{tapak2018quadcopter}
+ \nocite{mohamed2019controlling}
+	
+	
+ \bibliography{projectref} %references is another file with extension ".bib" ie references.bib where you have all the references in the appropriate format
+ \bibliographystyle{ieeetr}
+	
+ %----------------------------------
+ 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ \end{document}
+\documentclass[a4paper,12pt,oneside]{report}
+
+\label{fig:my_label}
+
+\end{figure}
+
+\end{center}
+
+\begin{figure}[hbt] \centerline{\includegraphics[scale=0.2]{camout.jpeg}}
+
+ \caption{Output Window}
+
+ \end{figure}
+
+￼
+
+￼
+
+￼
+
+\section{Result}
+
+A drone that can be operated and maneuvered on both land, as well as air, is designed and developed. The model is a combination of quadcopter and land bot which is integrated together using a 3-D model made of PLA material. The model also consists of a surveillance system, which is an ESP 32 camera module connected with an OV 2640 image sensor programmed to achieve aerial as well as land surveillance.
+
+￼
+
+￼
+
+The output images captured by the camera is shown below:
+
+￼
+
+\begin{figure}[h]
+
+\centering
+
+\includegraphics[scale=0.6]{sample1.jpg}
+
+\caption{Sample Image 1}
+
+\label{fig:my_label3}
+
+\end{figure}
+
+\begin{figure}[h]
+
+\centering
+
+\includegraphics[scale=0.4]{sample2.jpg}
+
+\caption{Sample Image 2}
+
+\label{fig:my_label3}
+
+\end{figure}
+
+￼
+
+Screen recordings of the live video feed were also obtained. Different resolutions can be chosen and video feeds can be obtained.
+
+\par Hence, the terrestrial drone can maneuver on land as well as be airborne. Also, it has the capability to achieve surveillance on both land as well as while in the air.
+
+￼
+
+￼
+
+￼
+
+￼
+
+%--------------------------------------------------  
+
+	
+
+ \newpage
+
+ \chapter{Conclusion}
+
+ \label{chap:Conclusion}
+
+ Drones have been in use since the 19th century starting from Queen bee drones to modern UAVs and have been employed in various sectors. This involves applications in the military, for delivery or surveillance. However, there exists a need for a drone capable of operating on land as well as in air. This is to ensure that depending upon the type of obstacles (ground or aerial), the drone can be maneuvered on the ground or aerially.
+
+ \par A drone model that can operate on land as well as in the air is designed and developed. The model consists of three main systems: the quadcopter system, the surveillance system, and the land control system. For each system, the most ideal components were selected from a pool of possible alternatives, keeping in mind performance, lightweight requirements, and cost. The three systems are held together with the help of a 3-D model structure.
+
+\par Maneuvering is done with the help of quadcopter and land control systems. The surveillance system helps to achieve live video feed which is obtained on the monitor. Further analysis of environments can be done by capturing snapshots. Applications of drone design include use in modern warfare as spy drones where both the terrains - air and land can be covered. Also, the drone can be used by police officials to aid in investigations. 
+
+	
+
+	
+
+	
+
+ %----------------------------------------------------
+
+	
+
+	
+
+ \newpage
+
+ \nocite{7103186}
+
+ \nocite{8329920}
+
+ \nocite{da2018novel}
+
+ \nocite{tapak2018quadcopter}
+
+ \nocite{mohamed2019controlling}
+
+	
+
+	
+
+ \bibliography{projectref} %references is another file with extension ".bib" ie references.bib where you have all the references in the appropriate format
+
+ \bibliographystyle{ieeetr}
+
+	
+
+ %----------------------------------
+
+ \newpage
+
+ \appendix
+
+ \chapter{Arduino Programming}
+
+ %\label{chap:append}
+
+ %{Arduino Programming}
